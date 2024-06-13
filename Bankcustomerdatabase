@@ -1,0 +1,57 @@
+import sqlite3
+conn=sqlite3.connect('BOB.db')
+cursor=conn.cursor()
+cursor.execute("DROP TABLE IF EXISTS BOB")
+query="""CREATE TABLE BOB(CUSTOMERNAME CHAR(10),AGE INT,ACCOUNTNUMBER INT PRIMARY KEY,PANNUMBER INT,BALANCE INT)"""
+cursor.execute(query)
+conn.execute("INSERT INTO BOB(CUSTOMERNAME,AGE,ACCOUNTNUMBER,PANNUMBER,BALANCE)VALUES('Loki','18','2013456456','BY210100334','1000000')")
+conn.execute("INSERT INTO BOB(CUSTOMERNAME,AGE,ACCOUNTNUMBER,PANNUMBER,BALANCE)VALUES('Rajesh','20','2034234567','BY210100482','10000')")
+conn.execute("INSERT INTO BOB(CUSTOMERNAME,AGE,ACCOUNTNUMBER,PANNUMBER,BALANCE)VALUES('Bhanu','25','2034056784','BY210100331','5000')")
+conn.execute("INSERT INTO BOB(CUSTOMERNAME,AGE,ACCOUNTNUMBER,PANNUMBER,BALANCE)VALUES('Siva','19','2090345673','BY210100393','900')")
+conn.execute("INSERT INTO BOB(CUSTOMERNAME,AGE,ACCOUNTNUMBER,PANNUMBER,BALANCE)VALUES('Praveen','23','2030405626','BY210100487','800000')")
+conn.execute("INSERT INTO BOB(CUSTOMERNAME,AGE,ACCOUNTNUMBER,PANNUMBER,BALANCE)VALUES('Ashraf','25','2078695332','BY210100147','1000000')")
+conn.execute("INSERT INTO BOB(CUSTOMERNAME,AGE,ACCOUNTNUMBER,PANNUMBER,BALANCE)VALUES('Lokini','50','2045673821','BY210100197','20000')")
+conn.execute("INSERT INTO BOB(CUSTOMERNAME,AGE,ACCOUNTNUMBER,PANNUMBER,BALANCE)VALUES('Pavani','20','2013453674','BY210100488','1000')")
+conn.commit()
+conn.close()
+cursor.close
+import sqlite3
+conn=sqlite3.connect('BOB.db')
+cursor=conn.cursor()
+CUSTOMERNAME=input("enter your name")
+AGE=int(input("enter your age"))
+ACCOUNTNUMBER=int(input("enter your acc no."))
+PANNUMBER=input("enter your pan no.")
+BALANCE=int(input("enter your balance"))
+data=(CUSTOMERNAME,AGE,ACCOUNTNUMBER,PANNUMBER,BALANCE)
+query=("INSERT INTO BOB(CUSTOMERNAME,AGE,ACCOUNTNUMBER,PANNUMBER,BALANCE)VALUES(?,?,?,?,?)")
+cursor.execute(query,data)
+conn.commit()
+conn.close()
+cursor.close
+import sqlite3
+conn=sqlite3.connect('BOB.db')
+cursor=conn.cursor()
+CUSTOMERNAME=input("enter your name")
+AGE=int(input("enter your age"))
+ACCOUNTNUMBER=int(input("enter your acc no."))
+PANNUMBER=input("enter your pan no.")
+BALANCE=int(input("enter your balance"))
+a=(CUSTOMERNAME,AGE,ACCOUNTNUMBER,PANNUMBER,BALANCE)
+b=("INSERT INTO BOB(CUSTOMERNAME,AGE,ACCOUNTNUMBER,PANNUMBER,BALANCE)VALUES(?,?,?,?,?)")
+cursor.execute(b,a)
+conn.commit()
+conn.close()
+cursor.close
+import sqlite3
+conn=sqlite3.connect('BOB.db')
+cursor=conn.cursor()
+df=conn.execute("SELECT * from BOB WHERE BALANCE > 20000")
+print(df)
+for t in df:
+  print("________")
+  print("PANNUMBER",t[3])
+  df=conn.execute("SELECT * from BOB WHERE BALANCE <= 5000")
+for r in df:
+  print("ACCOUNTNUMBER",r[2])
+  print("PANNUMBER",r[3])
