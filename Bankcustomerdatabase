@@ -1,3 +1,17 @@
+C. Write a python program to create a bank customer database and perform the following
+operations:
+i. The table should contain Customer name, age, account number, PAN card number,
+and balance. Choose an appropriate primary key.
+ii. Insert at least 10 different customer details.
+iii. All the values for at least two customers should be entered by the user (using the
+input() function).
+iv. Display the PAN card numbers of all the customers whose balance is more than
+20000.
+v. Based on the account number, update the PAN card number as ‘XXXX’ whose
+balance is less than or equal to 5000. 
+
+Code 
+
 import sqlite3
 conn=sqlite3.connect('BOB.db')
 cursor=conn.cursor()
